@@ -1,0 +1,22 @@
+Suite: 'Suite' name=ID
+  tests+=Test*
+  order=Order?
+;
+
+Test: 'Test' name=ID flags*=Flag
+'When' params*=Parameter[',']+
+result=Result
+;
+
+Result: 'Then' ('result' 'should' 'be')? (value=Datatype | EmptyResult) ;
+
+Parameter: (param_name=ID '=' param_value=Datatype) | EmptyParameters ;
+
+Datatype: STRING | INT | FLOAT | NUMBER | BOOL ;
+EmptyParameters: 'no' 'parameters' | 'None' | 'none' | 'void' | 'Void' ;
+EmptyResult: 'empty' | 'Empty' | 'void' | 'Void' | 'none' | 'None' ;
+
+Flag: '-'('skip' | 'Skip' | Repeat)? ;
+Repeat: ('repeat' | 'Repeat') repetitions=INT ('times' | 'Times') ;
+
+Order: 'Execution' 'order' ':' test_names+=ID[',']+ ;

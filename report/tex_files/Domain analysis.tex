@@ -1,0 +1,75 @@
+\chapter{DOMAIN ANALYSIS}
+
+Domain specific languages (DSLs) are a collection of functions named after intuitively obvious behaviour in a certain environment. Unit testing is a testing technique that isolates individual modules to find, analyze, and remedy any faults. DSLs can improve product quality, reduce repetitive code, enforce domain-specific rules, and improve communication and cooperation.
+
+There are already established DSLs for unit tests, which greatly aids in the testing of various methods or modules. Eclipse JUnit Test Platform and DSL Debugging Framework are two of the most popular. 
+
+
+
+\section{Problem Description and Problem Analysis}
+
+The domain the Domain-Specific Language (DSL) will address is Unit Testing. It  is a type of software testing where individual units or components of a software are tested \cite{techtarget}.
+
+ The purpose is to validate that each unit of the software code performs as expected. Testing is done during the development of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.
+
+ The difficulty of developing, comprehending, and maintaining unit tests is the issue with unit testing that a DSL can address.
+
+ Unit testing can benefit from a domain-specific language in a variety of ways:
+\begin{itemize}
+    \hitem Improved readability: a DSL for unit testing can offer a shorter, more clear syntax, making it simpler to design, comprehend, and manage tests. This can improve the accuracy and reliability of unit tests and make it simpler to find and address problems.
+ \hitem Abstraction: a DSL can provide a level of abstraction that makes testing complicated or challenging-to-understand code simpler. Developers can create tests that are independent of the actual implementation by employing a DSL, making it simpler to modify the implementation without affecting the tests.
+ \hitem Customization: It is simpler to develop tests that are pertinent and useful for a given context when a DSL has been adapted to the particular requirements of a project or team. This can enhance the efficacy and quality of unit tests and point out areas where the code should be better managed.
+ \hitem Improved teamwork: A DSL can make it simpler for members of the team to work together on unit testing. Team members can exchange and reuse test code and work more productively together on test creation and maintenance when they use the same language.
+ \hitem Improved automation: By offering a clear and uniform syntax that automated testing tools can quickly parse, a DSL can make it simpler to automate unit testing. This makes it simpler to detect faults and regressions early in the development cycle and can speed up, reliably, and scale unit tests.
+\end{itemize}
+ 
+
+All things considered, a DSL may make it simpler to develop, manage, and execute tests while also enhancing the quality, consistency, and automation of unit tests. This makes it possible to find and address problems quickly and effectively.
+
+
+
+
+\section{Solution Proposal}
+
+Unit testing is an essential part of software development, but it can be a challenging task for many developers. One of the main challenges is that writing unit tests requires a significant amount of time and effort. Additionally, it can be difficult to write effective tests that cover all possible scenarios \cite{guru99}.  
+
+One potential solution to these problems is to develop a domain-specific language (DSL) for unit testing. A DSL is a programming language that is designed to solve a specific problem or address a particular domain. In the case of unit testing, a DSL could be developed that is specifically designed to write and run unit tests.
+
+A DSL for unit testing would make it easier for developers to write effective tests, as it would provide them with a set of predefined constructs and syntax that are tailored to the needs of unit testing. This would help to reduce the time and effort required to write tests and would also ensure that the tests cover all possible scenarios.
+
+Furthermore, a DSL for unit testing would enable developers to write tests in a more intuitive and natural way, using domain-specific terminology and constructs. This would make it easier for developers to understand and modify tests.
+
+In summary, developing a domain-specific language for unit testing has the potential to solve many of the problems associated with writing and running unit tests. It would provide developers with a set of predefined constructs and syntax that are tailored to the needs of unit testing, making it easier to write effective tests that cover all possible scenarios. Additionally, it would enable developers to write tests in a more intuitive and natural way, using domain-specific terminology and constructs. Overall, a DSL for unit testing could significantly improve the efficiency and effectiveness of the unit testing process.
+
+\section{Target Group and Customer Validation}
+
+As any other type of product, when developing a language, it has to be taken into consideration the potential users that will be interested in the service. Potential users of the DSL for unit tests are:
+
+Testers, because their job involves testing the developed software product and unit tests being an often used technique for doing tests.
+
+Software developers. Sometimes a team doesn’t have a tester, which means that a one developer or a group of developers will take the responsibility to perform automated tests on the developed software \cite{methodpoet}.
+
+Library developers. Similar to software developers, when working on a library its individual units should be tested to ensure that the many users it will have will not have any problems, errors or crashes while using the library, because a library creates a dependency and it may be hard to get rid of it.
+
+Cybersecurity specialists. Although it is not usually the case, cybersecurity specialists may write unit tests to validate the behavior of security-critical components in the code, such as encryption and authentication modules. 
+
+\section{Comparative Analysis}
+
+There are DSLs for unit tests, which greatly aid in testing different methods or modules. The most popular ones are Eclipse JUnit Test Platform, DSL Debugging Framework. HtmlUnit, PHPUnit, TAP, RSpec, utPLSQL.
+
+\begin{itemize}
+    \item Eclipse JUnit Test Platform is a unit test engine used to determine the correctness of modules by executing source code against specified test cases. It is focused on Java and is not applicable to general testing of DSL programs.
+    \item The DSL Debugging Framework (DDF) provides core support for DSL debugging, using ANTLR to construct recognizers, compilers, and translators from grammatical descriptions. It generates GPL code representing the intention of the DSL program and mapping information that integrates with the host GPL debugger.
+    \item HtmlUnit is a GUI-less browser for Java programs that simulates a browser for testing purposes and is intended to be used within another testing framework.
+    \item PHPUnit is a unit testing framework for PHP, based on the idea of finding mistakes quickly and asserting that no code regression has occurred.
+    \item The Test Anything Protocol (TAP) is a protocol to allow communication between unit tests and a test harness. It allows individual tests to communicate test results to the testing harness in a language-agnostic way. 
+    \item RSpec is a computer domain-specific language (DSL) testing tool written in Ruby to test Ruby code. It is a behavior-driven development (BDD) framework used in production applications.
+    \item utPLSQL has a rich assertion library, and generates code coverage reports as well. Tests can be run straight from the database, or using the command-line interface that is part of the project.
+
+\end{itemize}
+
+
+\section{Domain Analysis Conclusions}
+In conclusion, developing a domain-specific language (DSL) for unit testing can significantly improve the efficiency and effectiveness of the unit testing process. Unit testing is crucial in software development, and a DSL can address the challenges of developing, comprehending, and maintaining unit tests. A DSL for unit testing can improve product quality, reduce repetitive code, enforce domain-specific rules.
+
+Additionally, a DSL for unit testing can improve readability, abstraction, customization, teamwork, and automation. There are already established DSLs for unit testing, such as Eclipse JUnit Test Platform and DSL Debugging Framework, which have proven to be beneficial in testing different methods or modules. Developing a DSL for unit testing has the potential to make it easier for developers to write effective tests that cover all possible scenarios, thus improving the overall quality of software development.

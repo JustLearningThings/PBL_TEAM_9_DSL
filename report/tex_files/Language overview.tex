@@ -1,0 +1,47 @@
+\chapter{LANGUAGE OVERVIEW}
+
+Using DSLs in unit testing can improve any product quality by reducing errors, improving architectural conformity, and increasing maintainability. It can help domain experts construct test cases that are more concise, expressive, and easy to comprehend in the context of unit testing.
+
+The basic computation our DSL performs is calling a function and comparing its returned value with the prescripted one. Using certain keywords user makes language to call a function named by the value of the FunctionName variable with arguments stored in the Parameters variable and to compare function return value to the expected value stored in the ExpectedValue variable.
+
+Basic data structure in our DSL is the input data received from the DSL user. It consists of the name of the module to be imported, the function name, unspecified amount of arguments to be used as parameters of the function call and the value which is expected to be equal to the received value of the function call. DomainName and FunctionName must be strings and any other input data can be of any type, starting with a regular integer variable, ending with an array of complex structured objects. Users create all the input data, combining keywords with needed values in his or her program. Users are able to manipulate data by changing any input data: DomainName, FunctionName, Parameters or ExpectedValue.
+
+A domain-specific language (DSL) for unit testing typically includes a variety of data structures that help to define and organize test cases. Here are some of the most common data structures used in unit testing DSLs:
+
+Test Case: a test case is a unit of testing that represents a single set of input values and expected output for a specific function or feature being tested. Test cases are typically defined in terms of input data, expected output, and any additional context or conditions that need to be met.
+
+Test Suite: a test suite is a collection of test cases that are grouped together based on their purpose, function, or area of focus. Test suites provide a way to organize tests into logical groupings and make it easier to manage large numbers of test cases.
+Assertion: An assertion is a statement that defines an expected condition or behavior for a specific test case. Assertions are used to check that the actual results of a test match the expected results, and are often defined using a specific syntax or function within the DSL.
+
+Fixture: a fixture is a set of preconditions that are required to execute a specific test case. Fixtures are used to set up the environment or context in which a test case will be executed, and can include things like initialization of variables, database connections, or other resources.
+
+Mock Object: a mock object is a simulated object that is used to replace a real object in order to test a specific feature or behavior. Mock objects are typically used to isolate specific components of an application or system, and are defined within the DSL in terms of their methods, properties, and expected behavior.
+
+As in any other languages, unit testing can cause various errors and issues. Error handling refers to the methods for managing to and recovering from error conditions in a software program \cite{mozaicworks}. Programs can fail in a variety of ways, so it's critical to have a solid error-handling system in place to assist users understand what went wrong and how to solve it. Users can encounter errors of different types such as: syntax, runtime or logical errors.
+
+In order not to confuse the user, and make their working process straightforward, there should be included error handling methods such as:
+\begin{itemize}
+    \item Send error logs to an external service
+    \item Provide meaningful error code description
+    \item  Clear and concise error messages, for the user to understand what is the problem and how to fix it
+    \item Logging, to help users understand the root cause
+    \item Input validation - validating user input can help prevent errors before they occur
+    \item  Offering the user alternative options to proceed or reverting the system to a safe state.
+    \item  Logging can be used to record errors that occur during runtime, which can help developers identify and fix problems.
+    
+\end{itemize}
+
+In a DSL for unit testing, users can specify or manipulate control flow by writing code that uses the control structures provided by the DSL. Here are some examples of how users can specify or manipulate control flow in a DSL for unit testing:
+\begin{enumerate}
+   \item Test Fixture Setup/Teardown: to define a test fixture setup/teardown control structure, the user typically writes code that specifies the setup and teardown actions that need to be performed. For example, the user might write code that creates a database connection in the setup step and closes the connection in the teardown step.
+
+   \item Test Suite Setup/Teardown: to define a test suite setup/teardown control structure, the user typically writes code that specifies the setup and teardown actions that need to be performed. For example, the user might write code that initializes a set of global variables in the setup step and releases those variables in the teardown step.
+
+   \item Looping: to specify looping in a unit testing DSL, the user typically writes code that uses a loop construct, such as a for loop or a while loop. The user might use looping to test a function or feature with different input values or to test the same function or feature under different conditions.
+   \item Conditional Branching: to define conditional branching in a unit testing DSL, the user typically writes code that uses if/else constructs or switch/case constructs to handle different conditions that may arise during testing. For example, the user might write code that checks whether a particular feature is available before executing a set of test cases.
+   \item Test Case Skips: to specify test case skips in a unit testing DSL, the user typically writes code that uses a skip or ignore construct to skip over a particular test case. For example, the user might write code that skips a test case if it is not relevant to the current testing scenario.
+   \end{enumerate}
+
+Overall, the user specifies or manipulates control flow in a DSL for unit testing by writing code that uses the control structures provided by the DSL. The DSL provides a way for users to express their test cases in a concise, readable way, and provides a framework for executing and reporting on the results of those tests.
+
+

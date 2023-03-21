@@ -1,0 +1,43 @@
+\documentclass{tum_report}
+
+
+
+\begin{document}
+
+    \input{tex_files/title_page}
+    \clearpage
+
+    \input{tex_files/abstract} 
+    \clearpage
+
+    \input{tex_files/list_of_figures} 
+    \clearpage
+
+    \addtocontents{toc}{\protect \thispagestyle{empty}}
+    \tableofcontents
+    \thispagestyle{empty}
+    \clearpage
+
+    \input{tex_files/introduction}
+    \clearpage
+
+    \input{tex_files/Domain analysis}
+    \clearpage
+    
+    \input{tex_files/Language overview}
+    \clearpage
+    
+    \input{tex_files/Grammar presentation}
+    \clearpage
+
+    \input{tex_files/Implementation}
+    \clearpage
+
+    \input{tex_files/conclusion}
+    \clearpage
+    
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Bibliography}
+    \input{tex_files/bibliography}
+
+\end{document}
