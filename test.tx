@@ -1,6 +1,6 @@
 Suite: 'Suite' name=ID
   tests+=Test*
-  Order?
+  order=Order?
 ;
 
 Test: 'Test' name=ID flags*=Flag
