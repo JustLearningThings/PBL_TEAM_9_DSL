@@ -90,3 +90,157 @@ As noticed, in figure 5, the test was generated as a JSON in a external file.The
 { \centering \includegraphics[width=\textwidth, height=12cm]{images/output.png} }
 \begin{center} Figure 5: JSON output file  \end{center}
 
+\section{Syntax Analyses}
+In language processing, syntax analysis is an essential component of a parser. The process of examining the structure of a given sequence of tokens according to the rules of a formal grammar is known as syntax analysis, often known as parsing. It is a critical stage in the compilation or interpretation of computer languages.
+
+A parser examines the stream of tokens created by the lexer (lexical analysis) to see if the token sequence follows the grammar rules of the language. It validates the syntax, determines the program's hierarchical structure, and generates a parse tree or an abstract syntax tree (AST) as a representation of the program's structure.
+
+The input and output of a sample scenario requiring syntax analysis in the context of a testing suite are represented by the examples below. 
+
+The input describes a set of tests organized within a suite. Each test has a name, potential parameters, an expected result, and optional flags such as "skip" and "repeat."
+
+\begin{verbatim}
+    Suite mySuite
+
+    Test foo -skip -repeat 5 times
+    When param1=1
+    Then result should be 1
+
+    Test foo2
+    When param2=True, param3="John"
+    Then result should be empty
+
+    Test foo3 -skip
+    When no parameters
+    Then result should be 1.42
+
+    Execution order: foo3, foo1, foo2
+\end{verbatim}
+
+The output is a structured representation of the input, indicating the suite name, the list of tests with their respective properties (name, parameters, result, skip status, and repetition count), and the execution order of the tests.
+
+Considering that the DSL is specifically designed for unit testing purposes, it has been determined that representing the syntax analysis results as a dictionary is a more favorable approach, beacause Dictionaries allow easy access and modification of the parsed elements using key-value pairs and Flexibility: Dictionaries offer flexibility in terms of how the parsed structure is represented and organized.
+
+\begin{verbatim}
+{
+    "suite": {
+        "name": "mySuite",
+        "tests": [
+            {
+                "name": "foo",
+                "params": [
+                    {
+                        "name": "param1",
+                        "type": "NUMBER",
+                        "value": 1
+                    }
+                ],
+                "result": 1,
+                "skip": true,
+                "num_repetitions": 5
+            },
+            {
+                "name": "foo2",
+                "params": [
+                    {
+                        "name": "param2",
+                        "type": "BOOLEAN",        
+                        "value": true
+                    },
+                    {
+                        "name": "param3",
+                        "type": "STRING",
+                        "value": "John"
+                    }
+                ],
+                "result": null,
+                "skip": false,
+                "num_repetitions": 1
+            },
+            {
+                "name": "foo3",
+                "params": [],
+                "result": 1.42,
+                "skip": true,
+                "num_repetitions": 1
+            }
+        ],
+        "executionOrder": [
+            "foo3",
+            "foo1",
+            "foo2"
+        ]
+    }
+}
+\end{verbatim}
+
+In this example, the syntax analysis is performed on the input to extract meaningful information and ensure it to the expected format.
+
+During the syntax analysis, the input is processed to identify and validate different components, such as the suite name, test names, parameters, expected results, flags, and execution order. Syntax rules and patterns are used to determine the structure and relationships between these elements.
+
+
+
+\section{Semantic Analyses}
+The semantic analysis step of language processing comes after syntactic analysis. While syntax analysis focuses on the structure and arrangement of tokens according to grammar rules, semantic analysis investigates the program's meaning and accuracy.
+
+The primary goal of semantic analysis is to detect and handle semantic flaws or inconsistencies that are not obvious from syntax alone. It entails inspecting the program's context and semantics to ensure that it follows the rules and limitations of the language.
+
+Several operations are performed by the parser or a separate semantic analyzer during semantic analysis, including:
+
+\begin{itemize}
+    \item Type checking ensures consistency and correctness by verifying that expressions and statements are utilized with compatible types. It is verified, for instance, whether an arithmetic operation is done between compatible numeric types or whether a function is called with the correct number and kinds of arguments.
+    \item It is monitoring the scope and visibility of variables, functions, and other program symbols. It ensures that symbols are defined before to use and that no name conflicts exist inside a particular scope.
+    \item Symbol table generation involves creating a symbol table or symbol information repository that stores various symbols (such as variables, functions, classes, etc.) created in the program, along with their attributes and scope information. The symbol table proves useful in subsequent stages of compilation or interpretation.
+
+    \item The input program is typically converted into an intermediate representation (IR), which serves as a lower-level representation that can be further processed or optimized. The generation of the symbol table aids in organizing and managing these symbols within the IR.
+    \item Semantic error detection and reporting involves the identification and reporting of semantic issues in a program that cannot be discovered solely through syntax analysis. These issues include incompatible assignments, undeclared variables, or erroneous function calls.
+\end{itemize}
+
+The input could be modified and it is observed that if a string that is not a subset of the code is provided, it would output a message indicating the presence of an illegal token.
+
+For instance, if is forgotten to write "parameters" in the When clause that expects no parameters like this:
+
+\begin{verbatim}
+        When no empty
+\end{verbatim}
+
+Then it should be output the following message:
+ 
+\begin{verbatim}
+        Syntax error! Expected 'no parameters' after `When`, got 'no empty'.
+\end{verbatim}
+
+The process of semantic analysis enhances the understanding of the program's intended meaning and identifies potential flaws that could result in run time errors or undesired behavior. By performing these tasks, semantic analysis helps ensure the correctness and reliability of the program by catching errors that may arise due to incorrect usage or inconsistencies in the program's semantics.
+
+\section{Demonstration of the language}
+
+The input demonstrates the usage of the language, featuring a suite named "mySuite" and several test cases. Each test case is identified by a name (e.g., "foo1", "foo2", "foo3") and is associated with potential parameters. The "When" clause defines the conditions for the test case, specifying the values of specific parameters (e.g., "param1=1", "param2=True", "param3='John'"). The "Then" clause expresses the expected result for each test case.
+
+The input also provides an execution order, indicating the desired sequence in which the test cases should be executed. According to the given order, "foo3" is intended to be executed first, followed by "foo1", and finally "foo2".
+
+\begin{verbatim}
+
+       Suite mySuite
+
+      Test foo1 -repeat 5 times
+      When param1=1
+      Then result should be 1
+
+      Test foo2 -repeat 2 times
+      When param2=True, param3="John"
+      Then result should be 0
+
+      Test foo3 
+      When no parameters
+      Then result should be 1.42
+
+      Execution order: foo3, foo1, foo2
+      
+\end{verbatim}
+
+Based on the data from Figure 6, it is clear that the tests were carried out successfully and without issue. The test execution order was strictly followed to, ensuring that the desired sequence was maintained throughout the testing procedure. Furthermore, the number of repetitions indicated for each test was taken into consideration effectively during execution, resulting in accurate and dependable test results. The fact that the tests passed implies that the language implementation and underlying testing framework worked as intended, indicating the efficacy of the testing techniques as well as the correctness of the execution order and repeat settings.
+
+{ \centering \includegraphics[width=\textwidth, height=10cm]{images/demo1.png} }
+\begin{center} Figure 6: Output of the language \end{center}
+
+Finally, the language demonstration highlighted the effective execution and passing of the tests. The adherence to the prescribed execution order and the appropriate management of test repetitions confirmed the language's and its related testing framework's dependability and accuracy. The demonstration highlighted the language's usefulness in facilitating unit testing and ensuring the desired outcomes by displaying the accurate execution and expected results of the tests.

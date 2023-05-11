@@ -8,11 +8,26 @@ There are already established DSLs for unit tests, which greatly aids in the tes
 
 \section{Problem Description and Problem Analysis}
 
+During the development of an application, unit testing of the software product are performed. An individual component could be either a single function or a single procedure. It is a testing method in which the developer tests each individual module to see whether there is a problem. It is connected to the independent modules' functional soundness. Unit Testing is typically performed by the developer. In SDLC or V Model, Unit testing is the initial level of testing done before integration testing. Unit testing is a type of testing technique that is commonly used by developers. Although, due to developers' reluctance to test, quality assurance engineers also perform unit testing. 
+
 The domain the Domain-Specific Language (DSL) will address is Unit Testing. It  is a type of software testing where individual units or components of a software are tested \cite{techtarget}.
 
  The purpose is to validate that each unit of the software code performs as expected. Testing is done during the development of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.
 
+ The fact that unit tests are independent of one another is widely known. A single unit test should only test one thing. Furthermore, this implies that a unit test should only contain a single assertion.
+
+A unit test is used to assess the quality of a single unit of code. Some units accept arguments, while others do not; some units return values, while others do not. Whatever the case, your unit test should cover all scenarios. A single unit of code will rarely have a single test.
+
+Instead, it could said that a good rule of thumb is that the number of tests associated with a unit of code scales exponentially based on the number of inputs it accepts.
+
+For instance:
+
+If a unit accepts no arguments, there will likely be one test.
+If a unit accepts one argument, there will likely be two tests – one for the expected argument and one for the unexpected.
+If a unit accepts two arguments, there will likely be four tests – one for each combination of arguments: expected, expected; expected, unexpected; unexpected, expected; and unexpected, unexpected.
+
  The difficulty of developing, comprehending, and maintaining unit tests is the issue with unit testing that a DSL can address.
+ 
 
  Unit testing can benefit from a domain-specific language in a variety of ways:
 \begin{itemize}
