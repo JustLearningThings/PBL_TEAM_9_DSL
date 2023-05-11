@@ -65,29 +65,18 @@ def test_functions(module_name, tests_json):
 
 
 def func():
-    input = '''
-      Suite mySuite
+    input = ''
 
-      Test foo1 -repeat 5 times
-      When param1=1
-      Then result should be 1
+    with open('../test.test', 'r') as f:
+        input = f.read()
 
-      Test foo2 -repeat 2 times
-      When param2=True, param3="John"
-      Then result should be 0
-
-      Test foo3 
-      When no parameters
-      Then result should be 1.42
-
-      Execution order: foo3, foo1, foo2
-      '''
+    print(input)
 
     parsing_tree = ast.AST()
     parsing_tree.get_tokens_from_input(input)
 
-    print([(t.Literal, t.Type) for t in parsing_tree.stack])
-    print()
+    # print([(t.Literal, t.Type) for t in parsing_tree.stack])
+    # print()
 
     parsing_tree.populate()
     print('\nSyntax:\n')

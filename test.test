@@ -1,0 +1,15 @@
+Suite mySuite
+
+Test foo1 -repeat 5 times
+When param1=1
+Then result should be 1
+
+Test foo2 -repeat 2 times
+When param2=True, param3="John"
+Then result should be 0
+
+Test foo3 
+When no parameters
+Then result should be 1.42
+
+Execution order: foo3, foo1, foo2
