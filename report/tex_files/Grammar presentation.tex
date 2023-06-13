@@ -15,13 +15,13 @@ Test functionName [flags]
 
 Notice that Test is bolded, meaning it is a keyword. Following is an identifier of a function. The interpreter will search the function in the file specified in the suite definition. This function will be tested in this test. Next, optionally, flags can be specified. It was thought of the flags for skipping a test (-test), for repeating a test multiple times (-repeat N times). 
 
-After specifying a test’s name and flags, there is the When [params]. This is the line that specifies the parameters of the function that will be called. Parameters are specified as paramName=paramValue. Notice that if a function doesn’t require (or accepts) no parameters at all, then you can just type no parameters and the function will be called without any parameters.
+After specifying a test’s name and flags, there is the When [params]. This is the line that specifies the parameters of the function that will be called. Parameters are specified as paramName=paramValue. Notice that if a function doesn’t require (or accepts) no parameters at all, then it can just type no parameters and the function will be called without any parameters.
 
 The last part that defines a test is the Then result should be [value]. It specifies the expected return value of the function call. Notice that a no return value (void function) also works. It is needed to type empty to mention that no value should be returned.
 
 The keyword empty when specifying the result value is interchangeable with Empty, void, Void, none and None. Similarly, the no parameters is interchangeable with None, none, Void and void.
 
-Lastly, it can specified the execution order of your tests. This is done by typing Execution order: [functionName1], [functionName2] and so on.
+Lastly, it can specified the execution order of the tests. This is done by typing Execution order: [functionName1], [functionName2] and so on.
 
 The following is a formal definition of the grammar in Backus-Naur Form (BNF):
 \begin{verbatim}

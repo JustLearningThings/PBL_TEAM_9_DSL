@@ -1,0 +1,37 @@
+\chapter{Language Design}
+
+
+\section{User friendly syntax }
+The syntax of the language help users write programmers more easily than the syntax of a general-purpose language because it was used a simplified input and is extracted relevant information from the input and represent it in a structured output format.  
+
+The language provides a clear and intuitive structure for defining tests within a suite. Each test is defined with a name, potential parameters, an expected result, and optional flags. This specific structure makes it easier for users to understand and define their tests concisely.
+
+The syntax includes optional flags like "skip" and "repeat," which allow users to control the behavior of their tests. By providing these expressive flags,it enables users to easily skip certain tests or repeat them a specific number of times. This makes it convenient for users to customize their testing scenarios without complex code manipulation.
+
+Defining parameters within tests is concise and straightforward. Parameters are represented as key-value pairs, where the name corresponds to the parameter name, and the value represents its assigned value. This syntax eliminates the need for excessive punctuation or complex syntax that is typically required in general-purpose languages, making it more user-friendly.
+
+The language allows users to define the expected result for each test explicitly. By specifying the expected result using a clear "Then" statement, users can easily articulate their desired outcome without cumbersome syntax or unnecessary code.
+
+The output representation of the syntax analysis as a dictionary provides flexibility and readability. Users can easily access and modify the parsed elements using key-value pairs. This flexibility allows for easier manipulation and organization of the parsed structure, enhancing the overall readability and maintainability of the testing suite.
+
+In summary, the syntax of the domain specific language designed for unit testing purposes offers an intuitive test structure, expressive flags, concise parameter syntax, clear result expectations, and flexibility through a dictionary-based output representation. These features collectively make it easier for users to write programs compared to the syntax of a general-purpose language.
+
+\section{Semantic abstractions }
+The semantic abstractions of the domain-specific language for unit testing includes the following:
+
+\begin{itemize}
+
+\item Suite - represents a collection or container for organizing tests. It acts as a high-level grouping mechanism for related tests within the testing suite.
+
+\item Test - means an individual test case. It encapsulates a specific scenario that needs to be tested. Each test has a name, potential parameters, an expected result, and optional flags such as "skip" and "repeat."
+
+\item Parameters - allows users to define inputs or configuration values for a test. Parameters are represented as key-value pairs and can have different data types such as numbers, booleans, or strings. They provide flexibility for customizing test scenarios.
+
+\item Result - represents the expected outcome or output of a test. It defines the expected value that the test should produce when executed. The result can be compared with the actual output to determine the success or failure of the test.
+
+\item Flags - includes optional modifiers or indicators that affect the behavior of a test. In the given scenario, the flags include "skip" and "repeat." The "skip" flag allows users to skip the execution of a test, while the "repeat" flag specifies the number of times a test should be repeated.
+
+\item Execution Order - defines the sequence in which tests should be executed. It allows users to specify the desired order of test execution to control dependencies or prerequisites between tests.
+\end{itemize}
+
+These semantic abstractions provide the fundamental building blocks for defining and organizing tests within the DSL. By utilizing these abstractions, users can express their testing scenarios in a concise and domain-specific manner, making it easier to understand and manage their unit tests.
