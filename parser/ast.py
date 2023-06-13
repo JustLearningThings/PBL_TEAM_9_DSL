@@ -72,7 +72,7 @@ class AST:
         i += 1
 
         while self.stack[i + 1].Type != RESULT:
-            print(self.stack[i].Literal)
+            # print(self.stack[i].Literal)
             if self.stack[i + 1].Type == IDENT and self.stack[i + 2].Type == ASSIGN and (self.stack[i + 3].Type in [NUMBER, STRING, OBJECT, VOID] or self.stack[i + 3].Type == IDENT and self.stack[i + 3].Literal.lower() in ['true', 'false']):
                 const_type = BOOLEAN if self.stack[i + 3].Type == IDENT else self.stack[i + 3].Type
 

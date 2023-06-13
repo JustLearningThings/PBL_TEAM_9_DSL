@@ -7,6 +7,8 @@ import importlib
 import importlib
 import json
 
+import sys
+
 def test_function(module_name, function_name, expected_return, num_repetitions, *args):
     module = importlib.import_module(module_name)
     function = getattr(module, function_name)
@@ -64,13 +66,13 @@ def test_functions(module_name, tests_json):
             tested_functions.add(function_name)
 
 
-def func():
+def func(filename):
     input = ''
 
-    with open('../test.test', 'r') as f:
+    with open(filename, 'r') as f:
         input = f.read()
 
-    print(input)
+    # print(input)
 
     parsing_tree = ast.AST()
     parsing_tree.get_tokens_from_input(input)
@@ -79,15 +81,39 @@ def func():
     # print()
 
     parsing_tree.populate()
-    print('\nSyntax:\n')
+    # print('\nSyntax:\n')
     test = json.dumps(parsing_tree.syntax, indent=4)
     return test
 
+def get_args():
+    if len(sys.argv) < 3:
+        print('Too few arguments! Please specify the test file and the module you want to test.')
+
+        return None
+    elif len(sys.argv) > 3:
+        print('Too many arguments! Please specify only the test file and the module you want to test.')
+
+        return None
+    
+    if '.test' not in sys.argv[1]:
+        print('The test file should be of .test extension.')
+
+        return None
+
+    if '.py' not in sys.argv[2]:
+        print('The module should be of .py extension.')
+
+        return None
+    
+    if '.test' in sys.argv[2] and '.py' in sys.argv[1]:
+        print('It appears you have confused the test file and the module file.')
+    
+        return None
+    
+    return sys.argv[1:]
 
 if __name__ == '__main__':
-    #print(func())
-    tests_json = func()
-    test_functions("pbl_test", tests_json)
+    test_file, module = get_args()
 
-
-
+    tests_json = func(test_file)
+    test_functions(module[:-3], tests_json)
